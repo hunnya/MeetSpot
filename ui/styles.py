@@ -4,6 +4,25 @@ MODERN_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
 
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--msp-slate-900);
+}
+.stApp {
+    background-color: var(--msp-slate-50);
+}
+html, body, [class*="css"], .stMarkdown, p, span, label, h1, h2, h3, h4, h5, h6, .stCaption {
+    color: #0F172A !important;  /* Dark slate text */
+}
+/* Base page background */
+.stApp {
+    background-color: #F8FAFC !important;
+}
+/* Card backgrounds and text */
+.msp-card, .msp-venue-card, div[data-testid="stForm"] {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+}
 :root {
     --msp-blue-600: #2563EB;
     --msp-blue-700: #1D4ED8;
