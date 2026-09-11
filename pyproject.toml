@@ -1,0 +1,27 @@
+[project]
+name = "meetspot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "hunnya", email = "hunnyasrfrz@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "bcrypt>=5.0.0",
+    "folium>=0.20.0",
+    "groq>=1.7.0",
+    "pandas>=3.0.5",
+    "python-dotenv>=1.2.3",
+    "requests>=2.34.2",
+    "sqlalchemy>=2.0.52",
+    "streamlit>=1.63.0",
+    "streamlit-folium>=0.27.4",
+]
+
+[project.scripts]
+meetspot = "meetspot:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
