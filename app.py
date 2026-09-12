@@ -29,7 +29,13 @@ from ui.favorites_ui import render_favorites_section
 from utils.demo_data import get_demo_meeting_data
 
 # Initialize SQLite database tables
-init_db()
+# init_db()
+@st.cache_resource
+def setup_database():
+    init_db()
+
+# Call the cached function instead of init_db() directly
+setup_database()
 
 # Initialize Streamlit session state
 init_session_auth()
