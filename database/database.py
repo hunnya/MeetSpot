@@ -28,7 +28,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def init_db():
     """Initializes the database schema if not already present."""
-    Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine, checkfirst=True)
+    # Base.metadata.create_all(bind=engine)
 
 
 @contextmanager
