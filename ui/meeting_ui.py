@@ -108,16 +108,6 @@ def render_create_meeting_form():
             key="pref_freetext",
         )
 
-    # Optional Groq API Key
-    with st.expander("Advanced AI Settings (Groq API Key)", expanded=False):
-        st.write("Groq provides high-speed Llama LLM ranking and explanation. If omitted, MeetSpot uses deterministic rule-based ranking.")
-        custom_groq_key = st.text_input(
-            "Groq API Key",
-            type="password",
-            placeholder="gsk_...",
-            key="custom_groq_key",
-            help="Free key from console.groq.com. Stored only in your current browser session.",
-        )
 
     st.markdown("---")
     btn_calc = st.button("✨ Calculate Fair Meeting Point", type="primary", use_container_width=True)
@@ -132,14 +122,13 @@ def render_create_meeting_form():
                 "freetext": freetext,
                 "meeting_date": str(meet_date),
             },
-            groq_key=custom_groq_key,
         )
 
 
 def _load_islamabad_preset():
     """Fills session state with sample participants from Islamabad."""
     preset = [
-        ("Hunnya", "Bahria University H-11, Islamabad"),
+        ("Hunnya", "H-11, Islamabad"),
         ("Ali", "F-10 Markaz, Islamabad"),
         ("Sara", "I-8 Markaz, Islamabad"),
         ("Bilal", "Blue Area, Islamabad"),
@@ -232,7 +221,7 @@ def _handle_calculation(
             fair_point=fair_point,
             travel_data=travel_data,
             fairness_metrics=fairness_metrics,
-            api_key=groq_key,
+            # api_key=groq_key,
         )
 
     # Save to session state

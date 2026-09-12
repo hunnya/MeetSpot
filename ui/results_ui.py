@@ -13,7 +13,7 @@ def render_results_section():
     """Renders the comprehensive results view from st.session_state.result_data."""
     res = st.session_state.get("result_data")
     if not res:
-        st.info("👈 Enter your group's details above and click 'Calculate Fair Meeting Point' to view results.")
+        st.info("Enter your group's details above and click 'Calculate Fair Meeting Point' to view results.")
         return
 
     fair_point = res["fair_point"]
@@ -139,7 +139,7 @@ def _render_save_meeting_box(res: dict):
         """
         <div class="msp-card" style="padding: 1.1rem;">
             <div style="font-weight: 700; font-size: 0.95rem; color: #2C3531; margin-bottom: 0.4rem;">
-                💾 Save Meeting
+                Save Meeting
             </div>
             <div style="font-size: 0.85rem; color: #55645A; margin-bottom: 0.8rem;">
                 Store this calculation in your account for future reference.
