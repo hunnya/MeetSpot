@@ -92,7 +92,7 @@ class TestMeetSpot(unittest.TestCase):
             m1 = MeetingMember(
                 saved_meeting_id=saved.id,
                 member_name="Hunnya",
-                address="Bahria University",
+                address="H-11 Islamabad",
                 latitude=33.6628,
                 longitude=72.9904,
                 travel_time_min=16.0,

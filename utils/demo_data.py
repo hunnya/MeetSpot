@@ -8,7 +8,7 @@ def get_demo_meeting_data():
     meeting_date = today + timedelta(days=2)
 
     participants = [
-        {"name": "Hunnya", "address": "Bahria University H-11, Islamabad", "lat": 33.6628, "lon": 72.9904},
+        {"name": "Hunnya", "address": "H-11, Islamabad", "lat": 33.6628, "lon": 72.9904},
         {"name": "Ali", "address": "F-10 Markaz, Islamabad", "lat": 33.6934, "lon": 73.0135},
         {"name": "Sara", "address": "I-8 Markaz, Islamabad", "lat": 33.6687, "lon": 73.0768},
         {"name": "Bilal", "address": "Blue Area, Islamabad", "lat": 33.7121, "lon": 73.0652},

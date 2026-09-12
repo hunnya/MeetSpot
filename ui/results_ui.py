@@ -25,7 +25,7 @@ def render_results_section():
     ai_note = res.get("ai_note", "")
 
     st.markdown("---")
-    st.markdown("## 🎯 Your Fairest Meeting Point")
+    st.markdown("## Your Fairest Meeting Point")
 
     # Fallback / Demo indicator banner if applicable
     if res.get("is_demo_mode"):
@@ -42,13 +42,13 @@ def render_results_section():
         st.markdown(
             f"""
             <div class="msp-winner-card">
-                <div style="font-size: 0.85rem; font-weight: 700; color: #047857; text-transform: uppercase; margin-bottom: 0.3rem;">
+                <div style="font-size: 0.85rem; font-weight: 700; color: #B5678A; text-transform: uppercase; margin-bottom: 0.3rem;">
                     🏆 Optimal Meeting Location
                 </div>
-                <h2 style="margin: 0 0 0.4rem 0; color: #0F172A; font-family: 'Plus Jakarta Sans', sans-serif;">
+                <h2 style="margin: 0 0 0.4rem 0; color: #2C3531; font-family: 'Plus Jakarta Sans', sans-serif;">
                     {fair_point.get('name', 'Meeting Point')}
                 </h2>
-                <p style="color: #475569; font-size: 0.95rem; margin-bottom: 0.8rem;">
+                <p style="color: #55645A; font-size: 0.95rem; margin-bottom: 0.8rem;">
                     📍 {fair_point.get('address', '')}
                 </p>
                 <div>
@@ -81,13 +81,13 @@ def render_results_section():
         st.markdown(
             f"""
             <div class="msp-highlight-card">
-                <div style="font-weight: 700; color: #1E3A8A; margin-bottom: 0.3rem;">
+                <div style="font-weight: 700; color: #2C3531; margin-bottom: 0.3rem;">
                     🤖 AI Fairness Justification
                 </div>
-                <div style="color: #334155; line-height: 1.55; font-size: 0.98rem;">
+                <div style="color: #2C3531; line-height: 1.55; font-size: 0.98rem;">
                     {ai_explanation}
                 </div>
-                <div style="font-size: 0.78rem; color: #64748B; margin-top: 0.5rem;">
+                <div style="font-size: 0.78rem; color: #55645A; margin-top: 0.5rem;">
                     {ai_note}
                 </div>
             </div>
@@ -99,7 +99,7 @@ def render_results_section():
     col_chart, col_weather = st.columns([1.6, 1.2])
 
     with col_chart:
-        st.markdown("#### ⏱️ Travel Time Balancing")
+        st.markdown("#### Travel Time Balancing")
         chart_df = pd.DataFrame([
             {
                 "Participant": p["name"],
@@ -112,23 +112,23 @@ def render_results_section():
             chart_df,
             x="Participant",
             y="Drive Time (min)",
-            color="#2563EB",
+            color="#7C8B65",
             use_container_width=True,
         )
         st.caption("Lower disparity = higher fairness. Everyone spends comparable time on the road.")
 
     with col_weather:
-        st.markdown("#### ⛅ Meetup Weather")
+        st.markdown("#### Meetup Weather")
         _render_weather_card(weather)
 
     # Interactive Map
-    st.markdown("#### 🗺️ Interactive Map")
+    st.markdown("#### Interactive Map")
     st.caption("Visualizing group starting points, the balanced meeting spot, and nearby venue options.")
     _render_folium_map(fair_point, travel_data, places)
 
     # Nearby Places
     st.markdown("---")
-    st.markdown("#### 🍽️ Recommended Nearby Places")
+    st.markdown("#### Recommended Nearby Places")
     st.write("Ranked by group preferences and distance from the optimal meeting spot.")
     _render_places_list(places)
 
@@ -138,10 +138,10 @@ def _render_save_meeting_box(res: dict):
     st.markdown(
         """
         <div class="msp-card" style="padding: 1.1rem;">
-            <div style="font-weight: 700; font-size: 0.95rem; color: #0F172A; margin-bottom: 0.4rem;">
+            <div style="font-weight: 700; font-size: 0.95rem; color: #2C3531; margin-bottom: 0.4rem;">
                 💾 Save Meeting
             </div>
-            <div style="font-size: 0.85rem; color: #64748B; margin-bottom: 0.8rem;">
+            <div style="font-size: 0.85rem; color: #55645A; margin-bottom: 0.8rem;">
                 Store this calculation in your account for future reference.
             </div>
         </div>
@@ -208,24 +208,24 @@ def _render_weather_card(weather: dict):
 
     st.markdown(
         f"""
-        <div class="msp-card" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
+        <div class="msp-card" style="background: linear-gradient(180deg, #EDF0E3 0%, #FFFFFF 100%);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
                 <div>
                     <span style="font-size: 1.8rem;">{icon}</span>
-                    <span style="font-size: 1.1rem; font-weight: 700; color: #1E293B; margin-left: 0.4rem;">{cond}</span>
+                    <span style="font-size: 1.1rem; font-weight: 700; color: #2C3531; margin-left: 0.4rem;">{cond}</span>
                 </div>
                 <div style="text-align: right;">
-                    <span style="font-size: 1.4rem; font-weight: 800; color: #2563EB;">{t_max:.0f}°C</span>
-                    <span style="font-size: 0.85rem; color: #64748B;">/ {t_min:.0f}°C</span>
+                    <span style="font-size: 1.4rem; font-weight: 800; color: #7C8B65;">{t_max:.0f}°C</span>
+                    <span style="font-size: 0.85rem; color: #55645A;">/ {t_min:.0f}°C</span>
                 </div>
             </div>
-            <div style="font-size: 0.88rem; color: #475569; margin-bottom: 0.6rem;">
+            <div style="font-size: 0.88rem; color: #55645A; margin-bottom: 0.6rem;">
                 🌧️ <b>Rain Probability:</b> {p_prob}%
             </div>
-            <div style="font-size: 0.85rem; color: #047857; background: #ECFDF5; border-radius: 8px; padding: 0.5rem 0.7rem; border: 1px solid #A7F3D0;">
+            <div style="font-size: 0.85rem; color: #8B4E68; background: #FBEEF2; border-radius: 8px; padding: 0.5rem 0.7rem; border: 1px solid #F0C9DA;">
                 💡 {advice}
             </div>
-            {"<div style='font-size: 0.75rem; color: #94A3B8; margin-top: 0.5rem;'>" + notice + "</div>" if notice else ""}
+            {"<div style='font-size: 0.75rem; color: #8A9A8C; margin-top: 0.5rem;'>" + notice + "</div>" if notice else ""}
         </div>
         """,
         unsafe_allow_html=True,

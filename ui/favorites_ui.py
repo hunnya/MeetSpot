@@ -7,7 +7,7 @@ from database.models import Favorite
 
 def render_favorites_section():
     """Renders the saved favorite venues list for the current logged-in user."""
-    st.markdown("### ⭐ My Favorite Places")
+    st.markdown("### My Favorite Places")
 
     if not is_authenticated():
         st.warning("🔒 Please sign in from the **Account** tab to view and manage your favorite places.")
@@ -36,13 +36,13 @@ def render_favorites_section():
                     f"""
                     <div class="msp-card" style="margin-bottom: 0.8rem; padding: 1rem 1.2rem;">
                         <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                            <h4 style="margin: 0; color: #0F172A;">⭐ {f.place_name}</h4>
+                            <h4 style="margin: 0; color: #2C3531;">{f.place_name}</h4>
                             <span class="msp-pill-blue">{f.place_type.capitalize() if f.place_type else 'Venue'}</span>
                         </div>
-                        <div style="font-size: 0.9rem; color: #475569; margin-top: 0.3rem;">
+                        <div style="font-size: 0.9rem; color: #55645A; margin-top: 0.3rem;">
                             📍 {f.address or f"Coordinates: {f.latitude:.4f}, {f.longitude:.4f}"}
                         </div>
-                        <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 0.3rem;">
+                        <div style="font-size: 0.8rem; color: #8A9A8C; margin-top: 0.3rem;">
                             Saved on {f.created_at.strftime('%B %d, %Y')} • {f.rating_or_match or ''}
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-"""Modern executive Map-Blue styling and custom CSS for MeetSpot."""
+"""Modern executive Cream-Sage styling and custom CSS for MeetSpot."""
 
 MODERN_CSS = """
 <style>
@@ -12,31 +12,31 @@ html, body, [class*="css"] {
     background-color: var(--msp-slate-50);
 }
 html, body, [class*="css"], .stMarkdown, p, span, label, h1, h2, h3, h4, h5, h6, .stCaption {
-    color: #0F172A !important;  /* Dark slate text */
+    color: #2C3531 !important;  /* Dark forest green text */
 }
 /* Base page background */
 .stApp {
-    background-color: #F8FAFC !important;
+    background-color: #FAF6EC !important;
 }
 /* Card backgrounds and text */
 .msp-card, .msp-venue-card, div[data-testid="stForm"] {
-    background-color: #FFFFFF !important;
-    color: #0F172A !important;
+    background-color: #A3B18E !important;
+    color: #2C3531 !important;
 }
 :root {
-    --msp-blue-600: #2563EB;
-    --msp-blue-700: #1D4ED8;
-    --msp-blue-900: #1E3A8A;
-    --msp-blue-50: #EFF6FF;
-    --msp-emerald-500: #10B981;
-    --msp-emerald-50: #ECFDF5;
+    --msp-blue-600: #A3B18E;
+    --msp-blue-700: #7C8B65;
+    --msp-blue-900: #2C3531;
+    --msp-blue-50: #E7EBDD;
+    --msp-emerald-500: #A3B18E;
+    --msp-emerald-50: #FBEEF2;
     --msp-amber-500: #F59E0B;
-    --msp-slate-50: #F8FAFC;
-    --msp-slate-100: #F1F5F9;
-    --msp-slate-200: #E2E8F0;
-    --msp-slate-600: #475569;
-    --msp-slate-700: #334155;
-    --msp-slate-900: #0F172A;
+    --msp-slate-50: #C9D3BB;
+    --msp-slate-100: #EDF0E6;
+    --msp-slate-200: #F3D9E3;
+    --msp-slate-600: #55645A;
+    --msp-slate-700: #2C3531;
+    --msp-slate-900: #2C3531;
 }
 
 html, body, [class*="css"] {
@@ -50,12 +50,12 @@ html, body, [class*="css"] {
 
 /* Hero Header */
 .msp-hero {
-    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+    background: linear-gradient(135deg, #2C3531 0%, #A3B18E 100%);
     border-radius: 16px;
     padding: 2.2rem 2.4rem;
     color: #FFFFFF;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 10px 25px -5px rgba(124, 139, 101, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -87,21 +87,21 @@ html, body, [class*="css"] {
 .msp-tagline {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #93C5FD;
+    color: #F4EFE3;
     margin-bottom: 0.6rem;
 }
 
 .msp-description {
     font-size: 1.0rem;
     line-height: 1.5;
-    color: #E0E7FF;
+    color: #EDEADF;
     max-width: 680px;
     margin: 0;
 }
 
 /* Polished Card */
 .msp-card {
-    background: #FFFFFF;
+    background: #A3B18E;
     border: 1px solid var(--msp-slate-200);
     border-radius: 14px;
     padding: 1.5rem;
@@ -116,23 +116,23 @@ html, body, [class*="css"] {
 
 /* Highlight Card */
 .msp-highlight-card {
-    background: #FFFFFF;
-    border: 1px solid #BFDBFE;
+    background: #A3B18E;
+    border: 1px solid #F3D9E3;
     border-left: 5px solid var(--msp-blue-600);
     border-radius: 14px;
     padding: 1.4rem 1.6rem;
     margin-bottom: 1.4rem;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);
+    box-shadow: 0 4px 12px rgba(124, 139, 101, 0.06);
 }
 
 /* Fairness Winner Card */
 .msp-winner-card {
-    background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
-    border: 1.5px solid #86EFAC;
+    background: linear-gradient(135deg, #FBEEF2 0%, #FFFFFF 100%);
+    border: 1.5px solid #F0C9DA;
     border-radius: 14px;
     padding: 1.4rem 1.6rem;
     margin-bottom: 1.4rem;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.08);
+    box-shadow: 0 4px 14px rgba(181, 103, 138, 0.08);
 }
 
 /* Stat Box */
@@ -170,7 +170,7 @@ html, body, [class*="css"] {
     font-size: 0.8rem;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    border: 1px solid #DBEAFE;
+    border: 1px solid #F3D9E3;
     margin-right: 0.4rem;
     margin-bottom: 0.4rem;
 }
@@ -178,20 +178,20 @@ html, body, [class*="css"] {
 .msp-pill-green {
     display: inline-block;
     background: var(--msp-emerald-50);
-    color: #047857;
+    color: #B5678A;
     font-weight: 600;
     font-size: 0.8rem;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    border: 1px solid #A7F3D0;
+    border: 1px solid #F0C9DA;
     margin-right: 0.4rem;
     margin-bottom: 0.4rem;
 }
 
 .msp-demo-tag {
-    background: #FEF3C7;
-    border: 1px solid #FCD34D;
-    color: #92400E;
+    background: #FBEEF2;
+    border: 1px solid #F0C9DA;
+    color: #8B4E68;
     font-weight: 700;
     font-size: 0.82rem;
     padding: 0.35rem 0.85rem;
@@ -202,7 +202,7 @@ html, body, [class*="css"] {
 
 /* Streamlit Widget Polish */
 div[data-testid="stForm"] {
-    background: #FFFFFF;
+    background: #A3B18E;
     border: 1px solid var(--msp-slate-200);
     border-radius: 16px;
     padding: 1.8rem;
@@ -220,17 +220,17 @@ div[data-testid="stForm"] {
     background: var(--msp-blue-600) !important;
     color: #FFFFFF !important;
     border: none !important;
-    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25) !important;
+    box-shadow: 0 4px 10px rgba(124, 139, 101, 0.25) !important;
 }
 
 .stButton button[kind="primary"]:hover {
     background: var(--msp-blue-700) !important;
-    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35) !important;
+    box-shadow: 0 6px 14px rgba(124, 139, 101, 0.35) !important;
 }
 
 /* Custom Venue Card */
 .msp-venue-card {
-    background: #FFFFFF;
+    background: #A3B18E;
     border: 1px solid var(--msp-slate-200);
     border-radius: 12px;
     padding: 1.2rem;
@@ -272,7 +272,7 @@ def render_hero():
     st.markdown(
         """
         <div class="msp-hero">
-            <div class="msp-badge">📍 Location-Based Fairness Engine</div>
+            <div class="msp-badge">Location-Based Fairness Engine</div>
             <div class="msp-title">MeetSpot</div>
             <div class="msp-tagline">"Stop arguing about where to meet."</div>
             <p class="msp-description">

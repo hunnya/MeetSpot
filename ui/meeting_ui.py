@@ -14,7 +14,7 @@ from utils.demo_data import get_demo_meeting_data
 
 def render_create_meeting_form():
     """Renders the meeting configuration form and handles calculation."""
-    st.markdown("### 📍 Plan Your Meetup")
+    st.markdown("### Plan Your Meetup")
     st.write("Enter your group's starting locations and preferences. MeetSpot will calculate the fairest point based on real travel times.")
 
     # State initialization for participant count and presets
@@ -26,7 +26,7 @@ def render_create_meeting_form():
     with col_preset1:
         st.caption("Tip: You can manually enter any city addresses, or load our hackathon test case for Islamabad.")
     with col_preset2:
-        if st.button("🚀 Load Islamabad Demo", use_container_width=True, help="Fills realistic Islamabad locations for rapid testing"):
+        if st.button("Load Islamabad Demo", use_container_width=True, help="Fills realistic Islamabad locations for rapid testing"):
             _load_islamabad_preset()
             st.rerun()
 
@@ -109,7 +109,7 @@ def render_create_meeting_form():
         )
 
     # Optional Groq API Key
-    with st.expander("🔑 Advanced AI Settings (Groq API Key)", expanded=False):
+    with st.expander("Advanced AI Settings (Groq API Key)", expanded=False):
         st.write("Groq provides high-speed Llama LLM ranking and explanation. If omitted, MeetSpot uses deterministic rule-based ranking.")
         custom_groq_key = st.text_input(
             "Groq API Key",

@@ -7,7 +7,7 @@ from database.models import SavedMeeting, MeetingMember
 
 def render_history_section():
     """Renders the saved meetings list for the current logged-in user."""
-    st.markdown("### 📋 My Saved Meetings")
+    st.markdown("### My Saved Meetings")
 
     if not is_authenticated():
         st.warning("🔒 Please sign in from the **Account** tab to view your saved meetings.")
@@ -30,7 +30,7 @@ def render_history_section():
         st.write(f"You have **{len(meetings)}** saved meeting(s):")
 
         for m in meetings:
-            with st.expander(f"📍 {m.meeting_name} — {m.meeting_date or 'No date set'}", expanded=False):
+            with st.expander(f"{m.meeting_name} — {m.meeting_date or 'No date set'}", expanded=False):
                 col1, col2 = st.columns([3, 1])
                 with col1:
                     st.write(f"**Fair Meeting Point:** {m.fair_address or 'Coordinates'}")

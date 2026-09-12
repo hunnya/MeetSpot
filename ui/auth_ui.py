@@ -18,9 +18,9 @@ def render_auth_section():
             f"""
             <div class="msp-card" style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                    <span style="font-size: 0.85rem; color: #64748B; text-transform: uppercase; font-weight: 600;">Active Account</span>
-                    <h3 style="margin: 0.1rem 0; color: #0F172A;">👤 {user.get('name', 'User')}</h3>
-                    <span style="color: #64748B; font-size: 0.9rem;">{user.get('email', '')}</span>
+                    <span style="font-size: 0.85rem; color: #55645A; text-transform: uppercase; font-weight: 600;">Active Account</span>
+                    <h3 style="margin: 0.1rem 0; color: #2C3531;">{user.get('name', 'User')}</h3>
+                    <span style="color: #55645A; font-size: 0.9rem;">{user.get('email', '')}</span>
                 </div>
             </div>
             """,
@@ -32,10 +32,10 @@ def render_auth_section():
             st.rerun()
         return
 
-    st.markdown("### 🔐 Account & Profile")
+    st.markdown("### Account & Profile")
     st.info("Log in or register to save your meetings, keep a history of group meetups, and favorite nearby venues.")
 
-    tab_login, tab_register = st.tabs(["🔑 Log In", "📝 Create Account"])
+    tab_login, tab_register = st.tabs(["Log In", "Create Account"])
 
     with tab_login:
         with st.form("login_form"):
@@ -56,7 +56,7 @@ def render_auth_section():
     with tab_register:
         with st.form("register_form"):
             st.markdown("#### New to MeetSpot?")
-            name = st.text_input("Full Name", placeholder="e.g. Hunnya Khan", key="auth_reg_name")
+            name = st.text_input("Full Name", placeholder="e.g. John Doe", key="auth_reg_name")
             reg_email = st.text_input("Email Address", placeholder="name@example.com", key="auth_reg_email")
             reg_pw = st.text_input("Password (min 6 characters)", type="password", key="auth_reg_pw")
             reg_pw_confirm = st.text_input("Confirm Password", type="password", key="auth_reg_pw_confirm")

@@ -12,7 +12,7 @@ load_dotenv()
 # Page configuration
 st.set_page_config(
     page_title="MeetSpot — The Fair Meeting Point Finder",
-    page_icon="📍",
+    page_icon=" ", ######
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -43,14 +43,14 @@ st.markdown(MODERN_CSS, unsafe_allow_html=True)
 # ==============================================================================
 # SIDEBAR
 # ==============================================================================
-with st.sidebar:
+with st.sidebar: ####### in span,, logo 
     st.markdown(
         """
         <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
-            <span style="font-size: 1.8rem; margin-right: 0.5rem;">📍</span>
+            <span style="font-size: 1.8rem; margin-right: 0.5rem;"></span>  
             <div>
-                <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #1E3A8A;">MeetSpot</h2>
-                <div style="font-size: 0.8rem; color: #64748B; font-weight: 600;">The Fair Meeting Point Finder</div>
+                <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #2C3531;">MeetSpot</h2>
+                <div style="font-size: 0.8rem; color: #55645A; font-weight: 600;">The Fair Meeting Point Finder</div>
             </div>
         </div>
         """,
@@ -62,10 +62,10 @@ with st.sidebar:
         u = get_current_user()
         st.markdown(
             f"""
-            <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 10px; padding: 0.7rem; margin-bottom: 1rem;">
-                <div style="font-size: 0.75rem; color: #1E40AF; text-transform: uppercase; font-weight: 700;">Signed In</div>
-                <div style="font-weight: 700; color: #0F172A; font-size: 0.95rem;">👤 {u.get('name')}</div>
-                <div style="font-size: 0.8rem; color: #64748B;">{u.get('email')}</div>
+            <div style="background: #E7EBDD; border: 1px solid #F3D9E3; border-radius: 10px; padding: 0.7rem; margin-bottom: 1rem;">
+                <div style="font-size: 0.75rem; color: #7C8B65; text-transform: uppercase; font-weight: 700;">Signed In</div>
+                <div style="font-weight: 700; color: #2C3531; font-size: 0.95rem;">👤 {u.get('name')}</div>
+                <div style="font-size: 0.8rem; color: #55645A;">{u.get('email')}</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -76,8 +76,8 @@ with st.sidebar:
     else:
         st.markdown(
             """
-            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 0.6rem; margin-bottom: 1rem;">
-                <div style="font-size: 0.8rem; color: #64748B;">Guest Session • Sign in on the Account tab to save meetings & favorites.</div>
+            <div style="background: #F3EDE0; border: 1px solid #F3D9E3; border-radius: 10px; padding: 0.6rem; margin-bottom: 1rem;">
+                <div style="font-size: 0.8rem; color: #55645A;">Guest Session • Sign in on the Account tab to save meetings & favorites.</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -86,7 +86,7 @@ with st.sidebar:
     st.markdown("---")
 
     # Hackathon Demo Mode Controller
-    st.markdown("#### 🛡️ Hackathon Controls")
+    st.markdown("#### 🕒 Demo Mode")
     demo_env = os.getenv("DEMO_MODE", "false").lower() == "true"
     is_demo_active = st.toggle("Enable Offline Demo Mode", value=demo_env, help="Activates precomputed realistic Islamabad data, protecting the demo from network/API drops.")
     if is_demo_active != demo_env:
@@ -106,7 +106,7 @@ with st.sidebar:
     groq_available = bool(os.getenv("GROQ_API_KEY") and os.getenv("GROQ_API_KEY") != "your_groq_api_key_here")
     st.markdown(
         f"""
-        <div style="font-size: 0.85rem; color: #475569; line-height: 1.8;">
+        <div style="font-size: 0.85rem; color: #55645A; line-height: 1.8;">
             <div>🟢 <b>OSRM:</b> Live (Road routing)</div>
             <div>🟢 <b>Nominatim:</b> Live (OSM Geocoding)</div>
             <div>🟢 <b>Overpass:</b> Live (OSM Places)</div>
@@ -119,7 +119,7 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.caption("MeetSpot v1.0 • Hackathon Edition\nBuilt with Streamlit & OpenStreetMap")
+    st.caption("MeetSpot v1.0 • Hackathon Edition\n")
 
 
 # ==============================================================================
@@ -128,11 +128,11 @@ with st.sidebar:
 render_hero()
 
 tab_find, tab_history, tab_favorites, tab_guide, tab_account = st.tabs([
-    "📍 Find Fair Spot",
-    "📋 My Saved Meetings",
-    "⭐ Saved Favorites",
-    "💡 How It Works",
-    "🔐 Account",
+    "Find Fair Spot",
+    "My Saved Meetings",
+    "Saved Favorites",
+    "How It Works",
+    "Account",
 ])
 
 # Tab 1: Find Fair Spot
@@ -148,80 +148,50 @@ with tab_history:
 with tab_favorites:
     render_favorites_section()
 
-# Tab 4: How It Works / Algorithm Guide
+# Tab 4: How It Works
 with tab_guide:
-    st.markdown("### 💡 Why MeetSpot? (The Science of Fairness)")
-    
-    col_g1, col_g2 = st.columns(2)
-    with col_g1:
-        st.markdown(
-            """
-            <div class="msp-card">
-                <h4 style="color: #DC2626; margin-top: 0;">❌ The Geographic Midpoint Fallacy</h4>
-                <p style="font-size: 0.92rem; color: #475569; line-height: 1.5;">
-                    Most apps simply calculate the mathematical average of latitude and longitude (the centroid).
-                    This completely ignores:
-                </p>
-                <ul style="font-size: 0.9rem; color: #334155;">
-                    <li>One-way streets, highways, and bridges.</li>
-                    <li>Terrain obstacles (mountains, rivers, railway tracks).</li>
-                    <li>Congested urban zones vs expressways.</li>
-                </ul>
-                <p style="font-size: 0.9rem; color: #64748B;">
-                    Result: One person drives 40 minutes while someone else walks 5 minutes.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with col_g2:
-        st.markdown(
-            """
-            <div class="msp-card">
-                <h4 style="color: #059669; margin-top: 0;">✅ The MeetSpot Travel-Time Balancer</h4>
-                <p style="font-size: 0.92rem; color: #475569; line-height: 1.5;">
-                    MeetSpot evaluates real-world driving travel times using OSRM Table routing:
-                </p>
-                <ul style="font-size: 0.9rem; color: #334155;">
-                    <li>Generates multi-ring candidate road coordinates around the centroid.</li>
-                    <li>Calculates driving duration from <b>every participant</b> to each candidate.</li>
-                    <li>Minimizes the <b>travel time gap (Max - Min)</b> across all group members.</li>
-                </ul>
-                <p style="font-size: 0.9rem; color: #047857; font-weight: 600;">
-                    Result: Travel disparity is minimized, making the meetup genuinely fair.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    st.markdown("#### 📐 Mathematical Objective Function")
+    st.markdown("### How MeetSpot Works")
     st.markdown(
         """
-        For each candidate meeting point $k$ and participants $i = 1, \\dots, N$:
-        
-        $$T_{i, k} = \\text{TravelTime}(\\text{Participant}_i \\to \\text{Candidate}_k)$$
-        $$\\text{Disparity Gap}_k = \\max_i(T_{i, k}) - \\min_i(T_{i, k})$$
-        $$\\text{Average Time}_k = \\frac{1}{N} \\sum_{i=1}^{N} T_{i, k}$$
-        $$\\text{Fairness Score}_k = 2.0 \\times \\text{Disparity Gap}_k + 0.5 \\times \\text{Average Time}_k$$
-        
-        The candidate that minimizes the **Fairness Score** is selected as the winning meeting spot.
-        """
+        <div class="msp-card">
+            <p style="font-size: 0.95rem; color: #2C3531; line-height: 1.6; margin: 0;">
+                Planning a meetup with a group usually means someone ends up traveling much further than
+                everyone else. MeetSpot looks at where each person is starting from and works out a spot
+                that keeps everyone's travel time as fair and balanced as possible — instead of just
+                picking the midpoint on a map.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    st.markdown("#### 🏗️ Architecture & Open-Source Stack")
+    st.markdown("#### Getting Your Fair Meeting Point")
     st.markdown(
         """
-        | Layer | Technology | Cost / Key Requirement |
-        |---|---|---|
-        | **Frontend / UI** | Streamlit 1.58 + Folium | Open-source, no key |
-        | **Geocoding** | OpenStreetMap Nominatim | Free, rate-throttled User-Agent |
-        | **Distance & Routing** | OSRM Table API | Free, real road networks |
-        | **Nearby Places** | OSM Overpass API | Free, queries cafes, restaurants, hotels |
-        | **Weather Forecast** | Open-Meteo API | Free, no credit card required |
-        | **AI Preference Engine** | Groq API (`llama-3.3-70b`) | Free tier / Seamless deterministic fallback |
-        | **Persistence** | SQLite + SQLAlchemy 2.0 | Local, encrypted passwords via bcrypt |
+        <div class="msp-card">
+            <ol style="font-size: 0.92rem; color: #2C3531; line-height: 1.7; padding-left: 1.2rem; margin: 0;">
+                <li><b>Add each person</b> in your group along with their starting location or a nearby landmark, on the <b>Find Fair Spot</b> tab.</li>
+                <li><b>Set your preferences</b> — cuisine, atmosphere, and budget — plus the date you're planning to meet.</li>
+                <li><b>Click "Calculate Fair Meeting Point"</b> and MeetSpot will balance everyone's travel time and pick the fairest spot to meet.</li>
+                <li><b>Browse the results</b> — you'll see the recommended location, a map of everyone's routes, nearby places to eat or hang out, and the weather forecast for your meeting day.</li>
+            </ol>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("#### Saving Your Meetings & Favorites")
+    st.markdown(
         """
+        <div class="msp-card">
+            <p style="font-size: 0.92rem; color: #2C3531; line-height: 1.6; margin: 0;">
+                Want to keep track of your meetups? Sign in or create an account from the <b>Account</b> tab.
+                Once you're logged in, you can save any meeting you calculate to <b>My Saved Meetings</b>, and
+                mark venues you like as <b>Saved Favorites</b> so they're easy to find again later.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
 # Tab 5: Account
