@@ -6,7 +6,7 @@
 
 ---
 
-## 🌟 Overview
+## Overview
 
 Groups of friends, colleagues, or students frequently struggle to agree on a fair place to meet. Standard mapping solutions calculate a simple geometric midpoint (geographic centroid), which completely ignores road networks, one-way bridges, rivers, and traffic congestion. As a result, one friend drives 45 minutes while another walks 5 minutes.
 
@@ -14,21 +14,21 @@ Groups of friends, colleagues, or students frequently struggle to agree on a fai
 
 ---
 
-## ✨ Features
+## Features
 
-- 👥 **Multi-Participant Input**: Supports 2 to 8 participants with custom starting addresses or landmarks.
-- ⚖️ **Real Travel-Time Fairness Algorithm**: Evaluates candidate road network nodes around the geographic centroid and selects the location that minimizes travel time disparity (`Max - Min`).
-- 🗺️ **Interactive Map**: Centered on the fair meeting point with color-coded pins for each participant, recommended venues, and travel routes.
-- 🍽️ **Nearby Place Suggestions**: Curates nearby cafes, restaurants, fast food, and hotels directly from OpenStreetMap.
-- 🤖 **AI Preference Ranking & Explanations**: Uses Groq LLM inference (`llama-3.3-70b-versatile`) to rank places by cuisine, atmosphere, budget, and free-text queries, with an intelligent deterministic fallback if no API key is provided.
-- ⛅ **Meeting Date Weather Forecast**: Fetches high/low temperature, rain chance, and outdoor dining advice via Open-Meteo.
-- 🔐 **User Accounts & Authentication**: Secure registration and login powered by bcrypt password hashing and SQLAlchemy.
-- 💾 **Saved Meetings & Favorites**: Authenticated users can save meetings and bookmark recommended venues to SQLite.
-- 🛡️ **Fail-Safe Demo Mode**: Built-in toggle and preset Islamabad test case so the demo never fails during hackathon judging.
+-  **Multi-Participant Input**: Supports 2 to 8 participants with custom starting addresses or landmarks.
+-  **Real Travel-Time Fairness Algorithm**: Evaluates candidate road network nodes around the geographic centroid and selects the location that minimizes travel time disparity (`Max - Min`).
+-  **Interactive Map**: Centered on the fair meeting point with color-coded pins for each participant, recommended venues, and travel routes.
+-  **Nearby Place Suggestions**: Curates nearby cafes, restaurants, fast food, and hotels directly from OpenStreetMap.
+-  **AI Preference Ranking & Explanations**: Uses Groq LLM inference (`llama-3.3-70b-versatile`) to rank places by cuisine, atmosphere, budget, and free-text queries, with an intelligent deterministic fallback if no API key is provided.
+-  **Meeting Date Weather Forecast**: Fetches high/low temperature, rain chance, and outdoor dining advice via Open-Meteo.
+-  **User Accounts & Authentication**: Secure registration and login powered by bcrypt password hashing and SQLAlchemy.
+-  **Saved Meetings & Favorites**: Authenticated users can save meetings and bookmark recommended venues to SQLite.
+-  **Fail-Safe Demo Mode**: Built-in toggle and preset Islamabad test case so the demo never fails during hackathon judging.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+##  Tech Stack & Architecture
 
 | Layer | Technology | Purpose |
 |---|---|---|
@@ -44,7 +44,7 @@ Groups of friends, colleagues, or students frequently struggle to agree on a fai
 
 ---
 
-## 📐 Fairness Algorithm Explained
+##  Fairness Algorithm Explained
 
 MeetSpot avoids the geometric midpoint fallacy by optimizing for **travel-time parity**:
 
@@ -61,7 +61,7 @@ MeetSpot avoids the geometric midpoint fallacy by optimizing for **travel-time p
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 meetspot/
@@ -113,7 +113,7 @@ meetspot/
 
 ---
 
-## 🚀 Quickstart Guide
+## Quickstart Guide
 
 ### Prerequisites
 - Python 3.10+ installed.
@@ -172,7 +172,7 @@ The application will open in your browser at `http://localhost:8501`.
 
 ---
 
-## 🛡️ Hackathon Demo Mode
+## Offline Demo Mode
 
 For live judging presentations, network drops or public API rate-limits can be disastrous. MeetSpot includes a **Fail-Safe Demo Mode**:
 - In the sidebar, toggle **"Enable Offline Demo Mode"**.
@@ -181,14 +181,14 @@ For live judging presentations, network drops or public API rate-limits can be d
 
 ---
 
-## 🔮 Future Roadmap
+## Future Roadmap
 
-- 🚗 / 🚶 **Multi-Modal Transit Toggles**: Separate fairness calculations for driving, public transit, and walking.
-- 🔗 **Shareable Meetup Links**: Unique invite URLs allowing each group member to enter their location without logging in.
-- 🗳️ **Group Voting System**: In-app voting between top 3 candidate venues.
-- 🚕 **Ride Fare Estimator**: Integrated Careem/Uber/Indrive fare approximations for each member.
+-  **Multi-Modal Transit Toggles**: Separate fairness calculations for driving, public transit, and walking.
+-  **Shareable Meetup Links**: Unique invite URLs allowing each group member to enter their location without logging in.
+-  **Group Voting System**: In-app voting between top 3 candidate venues.
+-  **Ride Fare Estimator**: Integrated Careem/Uber/Indrive fare approximations for each member.
 
 ---
 
-## 📄 License
+## License
 MIT License. Built with passion for hackathon innovation.
