@@ -190,5 +190,4 @@ For live judging presentations, network drops or public API rate-limits can be d
 
 ---
 
-## License
-MIT License. Built with passion for hackathon innovation.
+--------------------------------------------------------------------
