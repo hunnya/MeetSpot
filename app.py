@@ -2,6 +2,14 @@
 MeetSpot — The Fair Meeting Point Finder
 Main Streamlit Application Controller.
 """
+import base64
+
+def img_to_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+# Convert your local image
+logo_base64 = img_to_base64("logo1.png")  # Replace with your file path
 import os
 import streamlit as st
 from dotenv import load_dotenv
@@ -12,7 +20,7 @@ load_dotenv()
 # Page configuration
 st.set_page_config(
     page_title="MeetSpot — The Fair Meeting Point Finder",
-    page_icon=" ", ######
+    page_icon="logo1.png", ######
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -43,11 +51,24 @@ st.markdown(MODERN_CSS, unsafe_allow_html=True)
 # ==============================================================================
 # SIDEBAR
 # ==============================================================================
-with st.sidebar: ####### in span,, logo 
+# with st.sidebar: ####### in span,, logo   # <span style="font-size: 1.8rem; margin-right: 0.5rem;"></span> 
+#     st.markdown(
+#         """
+#         <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+#            <img src="data:logo/jpe;base64,{logo_base64}" style="width: 35px; height: 35px; margin-right: 0.5rem; object-fit: contain;" alt="MeetSpot Logo">
+#             <div>
+#                 <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #2C3531;">MeetSpot</h2>
+#                 <div style="font-size: 0.8rem; color: #55645A; font-weight: 600;">The Fair Meeting Point Finder</div>
+#             </div>
+#         </div>
+#         """,
+#         unsafe_allow_html=True,
+#     )
+with st.sidebar:
     st.markdown(
-        """
+        f"""
         <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
-            <span style="font-size: 1.8rem; margin-right: 0.5rem;"></span>  
+            <img src="data:image/png;base64,{logo_base64}" style="width: 35px; height: 35px; margin-right: 0.5rem; object-fit: contain;" alt="MeetSpot Logo">  
             <div>
                 <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: #2C3531;">MeetSpot</h2>
                 <div style="font-size: 0.8rem; color: #55645A; font-weight: 600;">The Fair Meeting Point Finder</div>
@@ -56,7 +77,7 @@ with st.sidebar: ####### in span,, logo
         """,
         unsafe_allow_html=True,
     )
-
+    
     # User state badge
     if is_authenticated():
         u = get_current_user()
